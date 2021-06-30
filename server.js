@@ -1,14 +1,16 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mailer = require('express-mailer');
 
-const PORT = process.env.PORT || 3001;
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
@@ -18,6 +20,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
+});
 
 app.use((req, res, next) => {
   // Set CORS headers so that the React SPA is able to communicate with this server
@@ -46,6 +51,3 @@ app.post('/api', (req , res) => {
     console.log("Backend successfull");
  });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
