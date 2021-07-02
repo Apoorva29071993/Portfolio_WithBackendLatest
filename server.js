@@ -6,7 +6,6 @@ const fs = require('fs');
 const sgMail = require("@sendgrid/mail");
 
 
-
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 
@@ -63,16 +62,16 @@ app.post('/api', (req , res) => {
       try {
         await sgMail.send({
           to : body.email ,
-          from : "apoorva.jakati@gmail.com" , 
+          from : "***********ati@gmail.com" , 
           subject : "Reply from Mr.Apoorva A. Jakati" ,
           text : `Thank you ${body.name} for Contacting me . Will get back to u soon.`
         });
 
         await sgMail.send({
-          to : "apoorva.jakati@gmail.com" ,
-          from : "apoorva.jakati@gmail.com" , 
+          to : "a*******ti@gmail.com" ,
+          from : "*********ti@gmail.com" , 
           subject : "Client Contacting From My Portfolio Website" ,
-          text : `Name : ${body.name}       
+          text : `Name : ${body.name}  
                   Phone No. : ${body.phone}
                   Email : ${body.email} 
                   Message : ${body.message}`
