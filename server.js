@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const sgMail = require("@sendgrid/mail");
 
-sgMail.setApiKey("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");
+
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -67,8 +67,19 @@ app.post('/api', (req , res) => {
           subject : "Reply from Mr.Apoorva A. Jakati" ,
           text : `Thank you ${body.name} for Contacting me . Will get back to u soon.`
         });
+
+        await sgMail.send({
+          to : "apoorva.jakati@gmail.com" ,
+          from : "apoorva.jakati@gmail.com" , 
+          subject : "Client Contacting From My Portfolio Website" ,
+          text : `Name : ${body.name}       
+                  Phone No. : ${body.phone}
+                  Email : ${body.email} 
+                  Message : ${body.message}`
+        });
+
         res.status(200).send();
-        console.log("Mail Received successfully");
+        console.log("Mail Received successfully ");
       } catch (error) {
         console.error(error);
     
