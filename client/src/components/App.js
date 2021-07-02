@@ -13,6 +13,7 @@ import Contact from './Contact.jsx';
 import SignIn from './SignIn.jsx';
 import ECommerce from './ECommerce.jsx';
 import Nisarga from './Nisarga.jsx';
+import Hobbies from './Hobbies.jsx';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
           <Route exact path="/ecommerce" render={()=><ECommerce/>} />
           <Route exact path="/nisarga" render={()=><Nisarga/>} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/hobbies" render={()=><div>Hobbies</div>} />
+          <Route exact path="/hobbies" render={()=><Hobbies/>} />
           <Route exact path="/contact" render={()=><Contact />} />
           <Route exact path="/signin" render={()=><SignIn/>} />
         </Switch>

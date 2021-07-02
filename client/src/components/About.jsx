@@ -19,6 +19,8 @@ import Skills from './Skills';
 import { useMediaQuery } from '@material-ui/core';
 import { useTheme } from '@material-ui/core';
 import revolutionBackground from "../assets/infoBackground.svg";
+import axios from 'axios';
+import download from 'downloadjs';
 
 
 const useStyles = makeStyles(theme => ({
@@ -113,7 +115,7 @@ const useStyles = makeStyles(theme => ({
         marginLeft : '3rem',
         marginRight : '3rem' ,
         marginBottom : "3rem",
-        backgroundColor : "#20c9a2",
+        backgroundColor : "black",
         borderRadius : "0rem" ,
        // backgroundImage: `url(${revolutionBackground})`,
         [theme.breakpoints.down("sm")]: {
@@ -229,6 +231,26 @@ export default function About(props) {
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const ondownloadCV = () => {
+        axios({
+            url : 'http://localhost:3001/downloadCV',
+            method : 'get' ,
+            responseType: 'blob'
+            })
+            .then(response => {
+                console.log(response.data);
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'Mr.ApoorvaResume.pdf');
+                    document.body.appendChild(link);
+                    link.click();
+            })
+            .catch(err => { 
+              console.log(err);
+            });
+    }
 
     return (
         <React.Fragment>
@@ -666,7 +688,7 @@ export default function About(props) {
                 
             <Grid item container direction="column" alignItems="center">
             <Grid item>
-                        <Button className={classes.button} variant="outlined">Click Here To Download CV</Button>
+                        <Button className={classes.button} onClick={ondownloadCV} variant="outlined">Click Here To Download CV</Button>
             </Grid>
             </Grid>
             

@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -50,4 +52,16 @@ app.post('/api', (req , res) => {
     res.status(200).send();
     console.log("Backend successfull");
  });
+
+ app.get('/downloadCV', (req , res) => {
+  console.log("Request name : Download CV ");
+  let filepath = path.join(__dirname , "Resume.pdf");
+  // console.log("Filepath " + filepath);
+  // res.status(200).download(filepath);
+
+  var data =fs.readFileSync(filepath);
+  res.contentType("application/pdf");
+  res.status(200).send(data);
+  console.log("Download CV End");
+});
 
