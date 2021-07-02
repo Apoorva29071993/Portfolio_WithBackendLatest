@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const sgMail = require("@sendgrid/mail");
+
+sgMail.setApiKey("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");
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -48,9 +51,35 @@ app.post('/api', (req , res) => {
     console.log("Email : " + body.email);
     console.log("Phone :" + body.phone);
     console.log("Message " + body.message);
+
+    // sgMail.send({
+    //   to : body.email ,
+    //   from : "apoorva.jakati@gmail.com" , 
+    //   subject : "Will get back to u soon" ,
+    //   text : "Thank you"
+    // });
+
+    (async () => {
+      try {
+        await sgMail.send({
+          to : body.email ,
+          from : "apoorva.jakati@gmail.com" , 
+          subject : "Reply from Mr.Apoorva A. Jakati" ,
+          text : `Thank you ${body.name} for Contacting me . Will get back to u soon.`
+        });
+        res.status(200).send();
+        console.log("Mail Received successfully");
+      } catch (error) {
+        console.error(error);
+    
+        if (error.response) {
+          console.error(error.response.body)  ;
+          res.status(500).send();
+          console.log("There was error in receiving mail .");
+        }
+      }
+    })()
  
-    res.status(200).send();
-    console.log("Backend successfull");
  });
 
  app.get('/downloadCV', (req , res) => {

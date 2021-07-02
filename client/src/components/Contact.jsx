@@ -194,9 +194,10 @@ export default function Contact(props) {
             open: true,
             backgroundColor: "#4BB543"
           });
-          setAlertMessage("Contact Data received in local server")
+          setAlertMessage("Mail sent successfully")
         })
         .catch(err => {
+            console.log("Send grid error" + err);
           setLoading(false);
           setAlert({
             open: true,
