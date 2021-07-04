@@ -31,22 +31,22 @@ export default createMuiTheme({
             color :`${White}`
         } ,
         h4 : {
-            fontFamily : "Saira Condensed",
+            fontFamily : "Roboto",
             fontSize : "1.75rem" ,
             color : `${Gold}`,
-            fontWeight : 700
+            //fontWeight : 700
         },
         h2 : {
-            fontFamily : "Saira Condensed",
+            fontFamily : "Roboto",
             fontSize : "7rem" ,
             color : `${Gold}`,
-            fontWeight : 700
+            //fontWeight : 700
         },
         h3 : {
-            fontFamily : "Saira Condensed",
+            fontFamily : "Roboto",
             fontSize : "1.7rem" ,
             color : `${White}`,
-            fontWeight : 700
+            //fontWeight : 700
         },
         subtitle1 : {
             fontSize : "1.25rem",
@@ -55,7 +55,7 @@ export default createMuiTheme({
         },
         h6 : {
             color : "white",
-            fontFamily : "Saira Condensed"
+            fontFamily : "Roboto"
         }
     },
     overrides : {

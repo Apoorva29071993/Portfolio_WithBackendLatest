@@ -179,8 +179,8 @@ const useStyles = makeStyles(theme => ({
     bodyText : {
         color : "grey" , 
         fontSize : "1.5rem" ,
-        fontFamily : "Saira Condensed",
-        fontWeight : "700",
+        fontFamily : "Roboto",
+        //fontWeight : "700",
         [theme.breakpoints.down("xs")]:{
             textAlign : "center",
             fontSize : "1rem"
