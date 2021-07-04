@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
      bodyText : {
         color : "white" , 
         fontSize : "1.5rem" ,
-        fontFamily : "Viaoda Libre",
+        fontFamily : "Saira Condensed",
         fontWeight : "700",
         [theme.breakpoints.down("xs")]:{
             textAlign : "center",

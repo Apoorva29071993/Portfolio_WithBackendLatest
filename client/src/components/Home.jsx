@@ -63,8 +63,8 @@ const useStyles = makeStyles(theme => ({
           borderRadius : 50 ,
           height : 45 ,
           width : 145 ,
-          fontFamily : 'Viaoda Libre' ,
-          fontSize : "1rem" ,
+          fontFamily : 'Saira Condensed' ,
+          fontSize : "1.2rem" ,
           "&:hover" : {
             backgroundColor : "white",
             color : theme.palette.common.gold

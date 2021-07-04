@@ -31,19 +31,19 @@ export default createMuiTheme({
             color :`${White}`
         } ,
         h4 : {
-            fontFamily : "Arial",
+            fontFamily : "Saira Condensed",
             fontSize : "1.75rem" ,
             color : `${Gold}`,
             fontWeight : 700
         },
         h2 : {
-            fontFamily : "M PLUS Rounded 1c",
+            fontFamily : "Saira Condensed",
             fontSize : "7rem" ,
             color : `${Gold}`,
             fontWeight : 700
         },
         h3 : {
-            fontFamily : "M PLUS Rounded 1c",
+            fontFamily : "Saira Condensed",
             fontSize : "1.7rem" ,
             color : `${White}`,
             fontWeight : 700
@@ -55,7 +55,7 @@ export default createMuiTheme({
         },
         h6 : {
             color : "white",
-            fontFamily : "M PLUS Rounded 1c"
+            fontFamily : "Saira Condensed"
         }
     },
     overrides : {

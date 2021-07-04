@@ -69,7 +69,8 @@ function ElevationScroll(props) {
       tab : {
           ...theme.typography.tab,
           minWidth : 10 ,
-          marginLeft : "25px"
+          marginLeft : "25px" ,
+          marginRight : "20px"
       },
       button : {
           borderRadius : "50px",
@@ -196,8 +197,8 @@ export default function Header(props) {
                     },
 
                     {name : "About" , link : "/about" , activeIndex : 2},
-                    {name : "Hobbies" , link : "/hobbies" , activeIndex : 3},
-                    {name : "ContactMe" , link : "/contact" , activeIndex : 4}];                    
+                   // {name : "Hobbies" , link : "/hobbies" , activeIndex : 3},
+                    {name : "ContactMe" , link : "/contact" , activeIndex : 3}];                    
 
     useEffect(() => {
 
@@ -238,9 +239,9 @@ export default function Header(props) {
 
             </Tabs>
 
-                <Button variant="contained" color="secondary" component={Link} to="/signin" className={classes.button}>
+                {/* <Button variant="contained" color="secondary" component={Link} to="/signin" className={classes.button}>
                     Sign In
-                </Button>
+                </Button> */}
 
                 <Menu id="simple-menu" 
                 anchorEl={anchorEl} open={openMenu} 
@@ -292,7 +293,7 @@ export default function Header(props) {
                 ))}
 
 
-                    <ListItem 
+                    {/* <ListItem 
                     onClick={() => {setOpenDrawer(false); props.setValue(5)}}  
                     divider button 
                     component={Link} to='/signin' 
@@ -300,7 +301,7 @@ export default function Header(props) {
                     selected={props.value === 5}
                     classes={{root : classes.drawerItemSelected , selected : classes.drawerItemSelected}}>
                         <ListItemText className={classes.drawerItem} disableTypography>SignIn</ListItemText>
-                    </ListItem>
+                    </ListItem> */}
                 </List>
             </SwipeableDrawer>
             <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(!openDrawer)} disableRipple>

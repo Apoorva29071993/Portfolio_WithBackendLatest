@@ -22,7 +22,7 @@ import revolutionBackground from "../assets/infoBackground.svg";
 import axios from 'axios';
 import download from 'downloadjs';
 
-
+const font = "'Roboto', sans-serif";
 const useStyles = makeStyles(theme => ({
     apoorva : {
         height: "15em",
@@ -179,7 +179,7 @@ const useStyles = makeStyles(theme => ({
     bodyText : {
         color : "grey" , 
         fontSize : "1.5rem" ,
-        fontFamily : "Viaoda Libre",
+        fontFamily : "Saira Condensed",
         fontWeight : "700",
         [theme.breakpoints.down("xs")]:{
             textAlign : "center",

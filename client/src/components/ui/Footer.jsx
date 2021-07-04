@@ -116,13 +116,13 @@ export default function Footer(props) {
                     </Grid>
                 </Grid>
 
-                <Grid item className={classes.gridItem}>
+                {/* <Grid item className={classes.gridItem}>
                     <Grid container direction="column" spacing={2}>
                         <Grid item component={Link} to="/hobbies" onClick={() => props.setValue(3)} className={classes.link}>
                             Hobbies
                         </Grid>
                     </Grid>
-                </Grid>
+                </Grid> */}
 
                 <Grid item className={classes.gridItem}>
                     <Grid container direction="column" spacing={2}>

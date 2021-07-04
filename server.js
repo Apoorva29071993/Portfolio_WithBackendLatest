@@ -40,8 +40,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.resolve(__dirname , '../client/build')))
-
 app.post('/api', (req , res) => {
     const body = {
       name : req.body.name ,
@@ -54,7 +52,45 @@ app.post('/api', (req , res) => {
     console.log("Phone :" + body.phone);
     console.log("Message " + body.message);
 
-    res.status(200).send();
+    // sgMail.send({
+    //   to : body.email ,
+    //   from : "apoorva.jakati@gmail.com" , 
+    //   subject : "Will get back to u soon" ,
+    //   text : "Thank you"
+    // });
+
+    (async () => {
+      try {
+        await sgMail.send({
+          to : body.email ,
+          from : "apoorva.jakati@gmail.com" , 
+          subject : "Reply from Mr.Apoorva A. Jakati" ,
+          text : `Thank you ${body.name} for Contacting me . Will get back to u soon.`
+        });
+
+        await sgMail.send({
+          to : "apoorva.jakati@gmail.com" ,
+          from : "apoorva.jakati@gmail.com" , 
+          subject : "Client Contacting From My Portfolio Website" ,
+          text : `Name : ${body.name}  
+                  Phone No. : ${body.phone}
+                  Email : ${body.email} 
+                  Message : ${body.message}`
+        });
+
+        res.status(200).send();
+        console.log("Mail Received successfully ");
+      } catch (error) {
+        console.error(error);
+    
+        if (error.response) {
+          console.error(error.response.body)  ;
+          res.status(500).send();
+          console.log("There was error in receiving mail .");
+        }
+      }
+    })()
+ 
  });
 
  app.get('/downloadCV', (req , res) => {
@@ -68,8 +104,4 @@ app.post('/api', (req , res) => {
   res.status(200).send(data);
   console.log("Download CV End");
 });
-
-app.get("*" , (req , res) => {
-  res.sendFile(path.resolve(__dirname , '../client/build' , 'index.html'));
-})
 

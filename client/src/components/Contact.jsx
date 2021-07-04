@@ -94,7 +94,7 @@ const useStyles = makeStyles(theme => ({
     bodyText : {
         color : "red" , 
         fontSize : "2.5rem" ,
-        fontFamily : "Dancing Script",
+        fontFamily : "Saira Condensed",
         fontWeight : "700",
         [theme.breakpoints.down("xs")]:{
             textAlign : "center",
