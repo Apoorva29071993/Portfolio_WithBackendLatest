@@ -5,9 +5,14 @@ const path = require('path');
 const fs = require('fs');
 const sgMail = require("@sendgrid/mail");
 
-sgMail.setApiKey("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");
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
+const sendGridApikey=process.env.SENDGRID_API_KEY;
+
+console.log("Stripe key = " + sendGridApikey);
+
+//sgMail.setApiKey(sendGridApikey);
 
 
 const app = express();
